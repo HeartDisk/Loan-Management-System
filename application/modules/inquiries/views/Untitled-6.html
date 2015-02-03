@@ -1,0 +1,41 @@
+    <script type='text/javascript' src='/JavaScriptSpellCheck/include.js' ></script>
+
+    <script type='text/javascript'>$Spelling.SpellCheckAsYouType('myfield')</script>
+
+    <textarea name="myfield"  id="myfield" cols="50" rows="10" maxlength='150'>
+
+    	maxlength is set to 100 in HTML...
+
+    	</textarea>
+
+     
+
+    <div id='CharCountLabel1'></div>
+
+     
+
+    <script type='text/javascript'>
+
+    CharacterCount = function(TextArea,FieldToCount){
+
+    	var myField = document.getElementById(TextArea);
+
+    	var myLabel = document.getElementById(FieldToCount); 
+
+    	if(!myField || !myLabel){return false}; // catches errors
+
+    	var MaxChars =  myField.maxLengh;
+
+    	if(!MaxChars){MaxChars =  myField.getAttribute('maxlength') ; }; 	if(!MaxChars){return false};
+
+    	var remainingChars =   MaxChars - myField.value.length
+
+    	myLabel.innerHTML = remainingChars+" Characters Remaining of Maximum "+MaxChars
+
+    }
+
+     
+
+    setInterval(function(){CharacterCount('myfield','CharCountLabel1')},55);
+
+    </script>
